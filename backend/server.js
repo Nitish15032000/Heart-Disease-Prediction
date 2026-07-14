@@ -8,7 +8,11 @@ const predictRoute = require("./routes/predict");
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+   origin: "https://heart-disease-prediction-bice-nine.vercel.app/",
+   methods: ["GET", "POST", "PUT", "DELETE"],
+   allowedHeaders: ["Content-Type", "Authorization"],
+}));
 app.use(express.json());
 
 app.use("/api", predictRoute);
